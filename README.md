@@ -26,7 +26,8 @@ Also includes Documentation and About pages.
 - Responsive design using Bulma CSS
 
 ## Learning Outcomes:
-- Objects and object constructors
+- Objects and object constructors (on version 1)
+- Objects and factory functions (on version 2)
 - DOM manipulation
 - Event listeners
 - Local storage
