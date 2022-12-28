@@ -16,7 +16,7 @@ The app is built with vanilla JavaScript and utilizes an object to store book in
 Also includes Documentation and About pages.
 
 ## Live Demo:
-Deploying...
+[Live Demo Link](https://luishernandezcoding.github.io/libraries-js/)
 
 ## Features:
 - Create book entries with title, author, number of pages, and read/not read status
