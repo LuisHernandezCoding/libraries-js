@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Javascript Library</title>
+  <!--import bulma, font awesome, and google fonts-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.8.0/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <!-- import custom css and js -->
+  <script src="script.js" defer></script>
+</head>
+  <body class="has-background-info">
+    <header>
+      <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="index.html">
+            Javascript Library
+          </a>
+          <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </a>
+        </div>
+        <div id="navbarBasicExample" class="navbar-menu">
+          <div class="navbar-start">
+            <a class="navbar-item">
+              Home
+            </a>
+            <a class="navbar-item">
+              Documentation
+            </a>
+            <a class="navbar-item">
+              About
+            </a>
+            <a class="navbar-item">
+              Contact
+            </a>
+          </div>
+          <div class="navbar-end">
+            <div class="navbar-item">
+              Made with &nbsp; <i class="fas fa-heart"></i> &nbsp;  by  &nbsp; <a href="https://github.com/LuisHernandezCoding">Luis Hernandez</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <br><br><br>
+    <div class="hero is-info">
+      <div class="hero-body">
+        <div class="container">
+          <h1 class="title">
+            Javascript Library
+          </h1>
+          <h2 class="subtitle">
+            an small library app made with vanilla javascript and bulma css
+          </h2>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="columns">
+        <div class="column is-one-third">
+          <div class="card">
+            <div class="card-content">
+              <div class="content">
+                <h1 class="title">Add Book</h1>
+                <form id="book-form" onsubmit="return validateForm()">
+                  <div class="field">
+                    <label class="label">Title</label>
+                    <div class="control">
+                      <p class="help is-danger is-hidden" id="title-error">Title is required and must be at least 3 characters long</p>
+                      <input class="input" type="text" placeholder="Title" id="title" autofocus>
+                    </div>
+                  </div>
+                  <div class="field">
+                    <label class="label">Author</label>
+                    <div class="control">
+                      <p class="help is-danger is-hidden" id="author-error">Author is required and must be at least 3 characters long</p>
+                      <input class="input" type="text" placeholder="Author" id="author">
+                    </div>
+                  </div>
+                  <div class="field">
+                    <label class="label">Pages</label>
+                    <div class="control">
+                      <p class="help is-danger is-hidden" id="pages-error">Pages is required and must be a number</p>
+                      <input class="input" type="number" placeholder="Pages" id="pages">
+                    </div>
+                  </div>
+                  <div class="field">
+                    <label class="label">Read</label>
+                    <div class="control">
+                      <div class="select">
+                        <select id="read">
+                          <option value="true">Yes</option>
+                          <option value="false">No</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="field is-grouped">
+                    <div class="control">
+                      <button class="button is-link" id="submit">Submit</button>
+                    </div>
+                    <div class="control">
+                      <button class="button is-link is-light" id="clear">Clear</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="column is-two-thirds">
+          <div class="card">
+            <div class="card-content">
+              <div class="content">
+                <h1 class="title">Library</h1>
+                <table class="table is-fullwidth">
+                  <thead>
+                    <tr>
+                      <th>Title</th>
+                      <th>Author</th>
+                      <th>Pages</th>
+                      <th>Read</th>
+                      <th>Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody id="book-list">
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br>
+    </div>
+    <footer class="footer">
+      <div class="content has-text-centered">
+        <p>
+          <strong>Javascript Library</strong> by Luis Hernandez. The source code is licensed
+          <a href="https://opensource.org/licenses/mit-license.php">MIT</a>. The website content
+          is licensed <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC ANS 4.0</a>.
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>
