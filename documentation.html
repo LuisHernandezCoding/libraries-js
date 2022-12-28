@@ -159,13 +159,13 @@
             <div class="column is-7">
               <pre><code class="language-javascript is-size-7">const myLibrary = [];
 // Create a new book object
-const book1 = new Book('The Hobbit', 'J.R.R. Tolkien', 295, 'Yes');
-const book2 = new Book('The Fellowship of the Ring', 'J.R.R. Tolkien', 423, 'No');
-const book3 = new Book('The Two Towers', 'J.R.R. Tolkien', 352, 'Yes');
-const book4 = new Book('The Return of the King', 'J.R.R. Tolkien', 416, 'No');
-const book5 = new Book('The Silmarillion', 'J.R.R. Tolkien', 432, 'Yes');
-const book6 = new Book('The Children of Hurin', 'J.R.R. Tolkien', 352, 'No');
-const book7 = new Book('The Lord of the Rings', 'J.R.R. Tolkien', 1216, 'Yes');
+const book1 = createBook('The Hobbit', 'J.R.R. Tolkien', 295, 'Yes');
+const book2 = createBook('The Fellowship of the Ring', 'J.R.R. Tolkien', 423, 'No');
+const book3 = createBook('The Two Towers', 'J.R.R. Tolkien', 352, 'Yes');
+const book4 = createBook('The Return of the King', 'J.R.R. Tolkien', 416, 'No');
+const book5 = createBook('The Silmarillion', 'J.R.R. Tolkien', 432, 'Yes');
+const book6 = createBook('The Children of Hurin', 'J.R.R. Tolkien', 352, 'No');
+const book7 = createBook('The Lord of the Rings', 'J.R.R. Tolkien', 1216, 'Yes');
 </code></pre>
             </div>
           </div>
@@ -269,19 +269,22 @@ const book7 = new Book('The Lord of the Rings', 'J.R.R. Tolkien', 1216, 'Yes');<
           <div class="columns">
             <div class="column is-5">
               <h3 class="title is-4 has-text-weight-bold has-text-white-bis">
-                Book Constructor
+                Book Factory Function
               </h3>
-              <p class="subtitle is-6 has-text-white is-italic">The Book constructor is used to create new book objects. It takes in four arguments: title, author, pages, and read. These arguments represent the properties of the book.</p>
+              <p class="subtitle is-6 has-text-white is-italic">The Book Factory Function is used to create new book objects.</p>
               <br>
-              <p class="subtitle is-6 has-text-white">The Book constructor is used to create new book objects. It takes in four arguments: title, author, pages, and read. These arguments represent the properties of the book.</p>
+              <p class="subtitle is-6 has-text-white">It takes in the book's title, author, pages, and read status as parameters.</p>
+              <p class="subtitle is-6 has-text-white">Its better to use a factory function than a constructor function because it is easier to read and understand. Also its bug free and easy to test.</p>
               <br>
             </div>
             <div class="column is-7">
-              <pre><code class="language-javascript is-size-7">function Book(title, author, pages, read) {
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.read = read;
+              <pre><code class="language-javascript is-size-7">function createBook(title, author, pages, read) {
+  return {
+    title,
+    author,
+    pages,
+    read,
+  };
 }</code></pre>
             </div>
           </div>
@@ -291,9 +294,11 @@ const book7 = new Book('The Lord of the Rings', 'J.R.R. Tolkien', 1216, 'Yes');<
               <h3 class="title is-4 has-text-weight-bold has-text-white-bis">
                 handleFormSubmit Button
               </h3>
-              <p class="subtitle is-6 has-text-white is-italic">The handleFormSubmit Button is used to handle the form submission. It first calls the validateForm function to validate the form input. If the input is valid, it calls the addBookToLibrary function to add the new book to the myLibrary array and then calls the render function to update the display of the books in the HTML table. If the input is invalid, it displays an error message.</p>
+              <p class="subtitle is-6 has-text-white is-italic">The handleFormSubmit Button is used to handle the form submission.</p>
               <br>
-              <p class="subtitle is-6 has-text-white">The handleFormSubmit Button is used to handle the form submission. It first calls the validateForm function to validate the form input. If the input is valid, it calls the addBookToLibrary function to add the new book to the myLibrary array and then calls the render function to update the display of the books in the HTML table. If the input is invalid, it displays an error message.</p>
+              <p class="subtitle is-6 has-text-white">It first calls the validateForm function to validate the form input. </p>
+              <p class="subtitle is-6 has-text-white">If the input is valid, it calls the addBookToLibrary function to add the new book to the myLibrary array and then calls the render function to update the display of the books in the HTML table. </p>
+              <p class="subtitle is-6 has-text-white">If the input is invalid, it displays an error message.</p>
               <br>
             </div>
             <div class="column is-7">
@@ -307,7 +312,7 @@ submit.addEventListener('click', (e) => {
   const author = document.getElementById('author').value;
   const pages = document.getElementById('pages').value;
   const read = document.getElementById('read').value;
-  const book = new Book(title, author, pages, read);
+  const book = createBook(title, author, pages, read);
   addBookToLibrary(book);
   form.reset();
 });</code></pre>

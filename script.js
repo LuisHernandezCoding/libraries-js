@@ -76,12 +76,14 @@ clear.addEventListener('click', (e) => {
   form.reset();
 });
 
-// Book constructor
-function Book(title, author, pages, read) {
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.read = read;
+// Book factory function
+function createBook(title, author, pages, read) {
+  return {
+    title,
+    author,
+    pages,
+    read,
+  };
 }
 
 // Add book to library function
@@ -101,19 +103,19 @@ submit.addEventListener('click', (e) => {
   const author = document.getElementById('author').value;
   const pages = document.getElementById('pages').value;
   const read = document.getElementById('read').value;
-  const book = new Book(title, author, pages, read);
+  const book = createBook(title, author, pages, read);
   addBookToLibrary(book);
   form.reset();
 });
 
 // Create a new book object
-const book1 = new Book('The Hobbit', 'J.R.R. Tolkien', 295, 'Yes');
-const book2 = new Book('The Fellowship of the Ring', 'J.R.R. Tolkien', 423, 'No');
-const book3 = new Book('The Two Towers', 'J.R.R. Tolkien', 352, 'Yes');
-const book4 = new Book('The Return of the King', 'J.R.R. Tolkien', 416, 'No');
-const book5 = new Book('The Silmarillion', 'J.R.R. Tolkien', 432, 'Yes');
-const book6 = new Book('The Children of Hurin', 'J.R.R. Tolkien', 352, 'No');
-const book7 = new Book('The Lord of the Rings', 'J.R.R. Tolkien', 1216, 'Yes');
+const book1 = createBook('The Hobbit', 'J.R.R. Tolkien', 295, 'Yes');
+const book2 = createBook('The Fellowship of the Ring', 'J.R.R. Tolkien', 423, 'No');
+const book3 = createBook('The Two Towers', 'J.R.R. Tolkien', 352, 'Yes');
+const book4 = createBook('The Return of the King', 'J.R.R. Tolkien', 416, 'No');
+const book5 = createBook('The Silmarillion', 'J.R.R. Tolkien', 432, 'Yes');
+const book6 = createBook('The Children of Hurin', 'J.R.R. Tolkien', 352, 'No');
+const book7 = createBook('The Lord of the Rings', 'J.R.R. Tolkien', 1216, 'Yes');
 
 // Add the books to the library
 addBookToLibrary(book1);
