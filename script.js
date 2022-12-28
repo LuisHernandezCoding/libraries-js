@@ -1,17 +1,3 @@
-document.addEventListener('DOMContentLoaded', () => {
-  const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
-  if ($navbarBurgers.length > 0) {
-    $navbarBurgers.forEach((el) => {
-      el.addEventListener('click', () => {
-        const { target } = el.dataset;
-        const $target = document.getElementById(target);
-        el.classList.toggle('is-active');
-        $target.classList.toggle('is-active');
-      });
-    });
-  }
-});
-
 function validateForm() {
   const title = document.getElementById('title').value;
   const author = document.getElementById('author').value;

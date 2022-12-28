@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Documentation | Javascript Library</title>
+  <!--import bulma, font awesome, google fonts and highlight.js-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.8.0/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/styles/a11y-dark.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/highlight.min.js"></script>
+  <!-- import custom css and js -->
+  <script src="navbar.js" defer></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+  <body class="has-background-info">
+    <header>
+      <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="index.html">
+            Javascript Library
+          </a>
+          <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </a>
+        </div>
+        <div id="navbarBasicExample" class="navbar-menu">
+          <div class="navbar-start">
+            <a class="navbar-item" href="documentation.html">
+              Documentation
+            </a>
+            <a class="navbar-item" href="about.html">
+              About
+            </a>
+          </div>
+          <div class="navbar-end">
+            <div class="navbar-item">
+              Made with &nbsp; <i class="fas fa-heart"></i> &nbsp;  by  &nbsp; <a href="https://github.com/LuisHernandezCoding">Luis Hernandez</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <br><br><br>
+    <div class="hero is-info">
+      <div class="hero-body">
+        <div class="container">
+          <h1 class="title">
+            Javascript Library
+          </h1>
+          <h2 class="subtitle">
+            an small library app made with vanilla javascript and bulma css, however this documentation is made with bulma and highlight.js
+          </h2>
+        </div>
+      </div>
+    </div>
+    <div class="hero has-background-info">
+      <div class="hero-body">
+        <div class="container">
+          <hr>
+          <h2 class="title is-3 has-text-weight-bold has-text-white-bis">
+            navbar.js (Burger Menu)
+          </h2>
+          <hr>
+          <div class="columns">
+            <div class="column is-5">
+              <p class="subtitle is-6 has-text-white is-italic">The navbar.js file contains the javascript code for the burger menu. The code is taken from the bulma documentation.</p>
+              <br>
+              <p class="subtitle is-6 has-text-white">The first block of code adds an event listener for the DOMContentLoaded event, which is fired when the initial HTML document has been completely loaded and parsed, without waiting for stylesheets, images, and subframes to finish loading.</p>
+              <br>
+              <p class="subtitle is-6 has-text-white">Inside the event listener, the code selects all elements with the class navbar-burger and adds a click event listener to each element. When clicked, the event listener toggles the is-active class on the clicked element and on the element with the ID specified in the data-target attribute of the clicked element.</p>
+            </div>
+            <div class="column is-7">
+              <pre><code class="language-javascript is-size-7">document.addEventListener('DOMContentLoaded', () => {
+  const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+  if ($navbarBurgers.length > 0) {
+    $navbarBurgers.forEach((el) => {
+      el.addEventListener('click', () => {
+        const { target } = el.dataset;
+        const $target = document.getElementById(target);
+        el.classList.toggle('is-active');
+        $target.classList.toggle('is-active');
+      });
+    });
+  }
+});</code></pre>            
+            </div>
+          </div>
+          <hr>
+          <h2 class="title is-3 has-text-weight-bold has-text-white-bis">
+            script.js (Library App)
+          </h2>
+          <hr>
+          <div class="columns">
+            <div class="column is-5">
+              <h3 class="title is-4 has-text-weight-bold has-text-white-bis">
+                validateForm Function
+              </h3>
+              <p class="subtitle is-6 has-text-white is-italic">The validateForm function is used to validate the form input when the form is submitted.</p>
+              <p class="subtitle is-6 has-text-white">The validateForm function is used to validate the form input when the form is submitted.</p>
+              <p class="subtitle is-6 has-text-white">It does this by checking the length of the title, author, and pages form fields and making sure they fall within certain ranges. </p>
+              <p class="subtitle is-6 has-text-white">If any of the fields are invalid, an error message is displayed and the field is highlighted with the is-danger class.</p>
+              <br>
+            </div>
+            <div class="column is-7">
+              <pre><code class="language-javascript is-size-7">function validateForm() {
+  const title = document.getElementById('title').value;
+  const author = document.getElementById('author').value;
+  const pages = document.getElementById('pages').value;
+  let validated = true;
+  if (title.length < 3 || title.length > 30) {
+    document.getElementById('title-error').classList.remove('is-hidden');
+    document.getElementById('title').classList.add('is-danger');
+    validated = false;
+  } else {
+    document.getElementById('title-error').classList.add('is-hidden');
+    document.getElementById('title').classList.remove('is-danger');
+  }
+
+  if (author.length < 3 || author.length > 30) {
+    document.getElementById('author-error').classList.remove('is-hidden');
+    document.getElementById('author').classList.add('is-danger');
+    validated = false;
+  } else {
+    document.getElementById('author-error').classList.add('is-hidden');
+    document.getElementById('author').classList.remove('is-danger');
+  }
+
+  if (pages < 1 || pages > 1000) {
+    document.getElementById('pages-error').classList.remove('is-hidden');
+    document.getElementById('pages').classList.add('is-danger');
+    validated = false;
+  } else {
+    document.getElementById('pages-error').classList.add('is-hidden');
+    document.getElementById('pages').classList.remove('is-danger');
+  }
+
+  return validated;
+}</code></pre>            
+            </div>
+          </div>
+          <hr>
+          <div class="columns">
+            <div class="column is-5">
+              <h3 class="title is-4 has-text-weight-bold has-text-white-bis">
+                myLibrary Array
+              </h3>
+              <p class="subtitle is-6 has-text-white is-italic">The myLibrary array is used to store instances of the Book constructor, which represents a book in the library.</p>
+              <br>
+              <p class="subtitle is-6 has-text-white">The myLibrary array is used to store instances of the Book constructor, which represents a book in the library.</p>
+              <p class="subtitle is-6 has-text-white">The array is initialized with a few books for testing purposes.</p>
+              <br>
+            </div>
+            <div class="column is-7">
+              <pre><code class="language-javascript is-size-7">const myLibrary = [];
+// Create a new book object
+const book1 = new Book('The Hobbit', 'J.R.R. Tolkien', 295, 'Yes');
+const book2 = new Book('The Fellowship of the Ring', 'J.R.R. Tolkien', 423, 'No');
+const book3 = new Book('The Two Towers', 'J.R.R. Tolkien', 352, 'Yes');
+const book4 = new Book('The Return of the King', 'J.R.R. Tolkien', 416, 'No');
+const book5 = new Book('The Silmarillion', 'J.R.R. Tolkien', 432, 'Yes');
+const book6 = new Book('The Children of Hurin', 'J.R.R. Tolkien', 352, 'No');
+const book7 = new Book('The Lord of the Rings', 'J.R.R. Tolkien', 1216, 'Yes');
+</code></pre>
+            </div>
+          </div>
+          <hr>
+          <div class="columns">
+            <div class="column is-5">
+              <h3 class="title is-4 has-text-weight-bold has-text-white-bis">
+                addBookToLibrary Function
+              </h3>
+              <p class="subtitle is-6 has-text-white is-italic">The addBookToLibrary function is used to add a new book to the myLibrary array.</p>
+              <br>
+              <p class="subtitle is-6 has-text-white">The addBookToLibrary function is used to add a new book to the myLibrary array.</p>
+              <p class="subtitle is-6 has-text-white">It does this by creating a new book object using the Book constructor and passing in the form input as arguments.</p>
+              <p class="subtitle is-6 has-text-white">It then pushes the new book object to the myLibrary array.</p>
+              <br>
+            </div>
+            <div class="column is-7">
+              <pre><code class="language-javascript is-size-7">function addBookToLibrary(book) {
+  myLibrary.push(book);
+  render();
+}</code></pre>
+              <br>
+              <p class="is-6 has-text-white">we also define some books for testing purposes and add them to the myLibrary array.</p>
+              <pre><code class="language-javascript is-size-7">const book1 = new Book('The Hobbit', 'J.R.R. Tolkien', 295, 'Yes');
+const book2 = new Book('The Fellowship of the Ring', 'J.R.R. Tolkien', 423, 'No');
+const book3 = new Book('The Two Towers', 'J.R.R. Tolkien', 352, 'Yes');
+const book4 = new Book('The Return of the King', 'J.R.R. Tolkien', 416, 'No');
+const book5 = new Book('The Silmarillion', 'J.R.R. Tolkien', 432, 'Yes');
+const book6 = new Book('The Children of Hurin', 'J.R.R. Tolkien', 352, 'No');
+const book7 = new Book('The Lord of the Rings', 'J.R.R. Tolkien', 1216, 'Yes');</code></pre>
+            </div>
+          </div>
+          <hr>
+          <div class="columns">
+            <div class="column is-5">
+              <h3 class="title is-4 has-text-weight-bold has-text-white-bis">
+                render Function
+              </h3>
+              <p class="subtitle is-6 has-text-white is-italic">The render function is used to display the books in the myLibrary array in the HTML table.</p>
+              <br>
+              <p class="subtitle is-6 has-text-white">The render function is used to display the books in the myLibrary array in the HTML table.</p>
+              <p class="subtitle is-6 has-text-white">It does this by looping through the array and creating a new table row for each book.</p>
+              <p class="subtitle is-6 has-text-white">It then creates cells for the book's title, author, pages, and read status, and a cell with a delete button for each book.</p>
+              <p class="subtitle is-6 has-text-white">The delete button has a click event listener that removes the corresponding book from the myLibrary array when clicked.</p>
+              <br>
+            </div>
+            <div class="column is-7">
+              <pre><code class="language-javascript is-size-7">function render() {
+  const bookList = document.getElementById('book-list');
+  bookList.innerHTML = '';
+  myLibrary.forEach((book, index) => {
+    const row = document.createElement('tr');
+    const titleCell = document.createElement('td');
+    titleCell.textContent = book.title;
+    row.appendChild(titleCell);
+    const authorCell = document.createElement('td');
+    authorCell.textContent = book.author;
+    row.appendChild(authorCell);
+    const pagesCell = document.createElement('td');
+    pagesCell.textContent = book.pages;
+    row.appendChild(pagesCell);
+    const readCell = document.createElement('td');
+    readCell.textContent = book.read;
+    row.appendChild(readCell);
+    const actionsCell = document.createElement('td');
+    const deleteButton = document.createElement('button');
+    deleteButton.classList.add('button', 'is-danger', 'is-small');
+    deleteButton.textContent = 'Delete';
+    deleteButton.addEventListener('click', () => {
+      myLibrary.splice(index, 1);
+      render();
+    });
+    actionsCell.appendChild(deleteButton);
+    row.appendChild(actionsCell);
+    bookList.appendChild(row);
+  });
+}</code></pre>
+            </div>
+          </div>
+          <hr>
+          <div class="columns">
+            <div class="column is-5">
+              <h3 class="title is-4 has-text-weight-bold has-text-white-bis">
+                Clear Form Button
+              </h3>
+              <p class="subtitle is-6 has-text-white is-italic">The code adds an event listener to the clear form button that resets the form when clicked.</p>
+              <br>
+              <p class="subtitle is-6 has-text-white">The code adds an event listener to the clear form button that resets the form when clicked.</p>
+              <br>
+            </div>
+            <div class="column is-7">
+              <pre><code class="language-javascript is-size-7">const form = document.getElementById('book-form');
+                const clear = document.getElementById('clear');
+                clear.addEventListener('click', (e) => {
+                  e.preventDefault();
+                  form.reset();
+                });</code></pre>
+            </div>
+          </div>
+          <hr>
+          <div class="columns">
+            <div class="column is-5">
+              <h3 class="title is-4 has-text-weight-bold has-text-white-bis">
+                Book Constructor
+              </h3>
+              <p class="subtitle is-6 has-text-white is-italic">The Book constructor is used to create new book objects. It takes in four arguments: title, author, pages, and read. These arguments represent the properties of the book.</p>
+              <br>
+              <p class="subtitle is-6 has-text-white">The Book constructor is used to create new book objects. It takes in four arguments: title, author, pages, and read. These arguments represent the properties of the book.</p>
+              <br>
+            </div>
+            <div class="column is-7">
+              <pre><code class="language-javascript is-size-7">function Book(title, author, pages, read) {
+  this.title = title;
+  this.author = author;
+  this.pages = pages;
+  this.read = read;
+}</code></pre>
+            </div>
+          </div>
+          <hr>
+          <div class="columns">
+            <div class="column is-5">
+              <h3 class="title is-4 has-text-weight-bold has-text-white-bis">
+                handleFormSubmit Button
+              </h3>
+              <p class="subtitle is-6 has-text-white is-italic">The handleFormSubmit Button is used to handle the form submission. It first calls the validateForm function to validate the form input. If the input is valid, it calls the addBookToLibrary function to add the new book to the myLibrary array and then calls the render function to update the display of the books in the HTML table. If the input is invalid, it displays an error message.</p>
+              <br>
+              <p class="subtitle is-6 has-text-white">The handleFormSubmit Button is used to handle the form submission. It first calls the validateForm function to validate the form input. If the input is valid, it calls the addBookToLibrary function to add the new book to the myLibrary array and then calls the render function to update the display of the books in the HTML table. If the input is invalid, it displays an error message.</p>
+              <br>
+            </div>
+            <div class="column is-7">
+              <pre><code class="language-javascript is-size-7">const submit = document.getElementById('submit');
+submit.addEventListener('click', (e) => {
+  e.preventDefault();
+  if (!validateForm()) {
+    return;
+  }
+  const title = document.getElementById('title').value;
+  const author = document.getElementById('author').value;
+  const pages = document.getElementById('pages').value;
+  const read = document.getElementById('read').value;
+  const book = new Book(title, author, pages, read);
+  addBookToLibrary(book);
+  form.reset();
+});</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br>
+    </div>
+    <footer class="footer">
+      <div class="content has-text-centered">
+        <p>
+          <strong>Javascript Library</strong> by Luis Hernandez.
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>
+<script>hljs.highlightAll();</script>
